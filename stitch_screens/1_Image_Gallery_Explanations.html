@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Lecture Mate - Image Gallery</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">school</span>
+<h2 class="text-slate-900 dark:text-white text-xl font-extrabold leading-tight tracking-tight">Lecture Mate</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="#">Lectures</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="#">Gallery</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="#">Notes</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-6">
+<label class="hidden sm:flex relative min-w-[200px] max-w-xs">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+<span class="material-symbols-outlined text-xl">search</span>
+</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 placeholder:text-slate-400" placeholder="Search diagrams..." type="text"/>
+</label>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr_Ll8pWb7Uz4F3-8g3uAYH3rdEt2knZU1jVEX-hT_feIiOPZJOUXfOi4QraYkKMCpr9b4CTbAbjsHirxqN-o8-yKI7qQLmx7myQwwGLRSQGQL4ses_RJ9GAMIXabvGQPmGqGZIq2kgTCLYp9Lr1rwuHrL3sJEMsP78cxDuhmDXfGN9YqVksSCvU7D3X5upFxq6-8zKEo_Q6bV4gaNR-0E0NFCZ3TvEaqUxvhBU34bEKsWRxOVmtOEV1R97LJQUnLY4fx8o5Uyo_dy"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 lg:px-20 py-10">
+<!-- Breadcrumbs & Header -->
+<div class="mb-8">
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-4">
+<a class="hover:text-primary" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 font-medium">Image Gallery</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-2">Visual Learning Hub</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">AI-extracted diagrams and slides with automated context analysis and explanations.</p>
+</div>
+<button class="bg-primary text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">upload</span>
+                    Upload Lecture
+                </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center gap-3 mb-10 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-primary/10">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+                All Images
+            </button>
+<button class="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 py-2 rounded-full text-sm font-semibold hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg">schema</span>
+                Diagrams
+            </button>
+<button class="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 py-2 rounded-full text-sm font-semibold hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg">drive_presentation</span>
+                Slides
+            </button>
+<button class="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 py-2 rounded-full text-sm font-semibold hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+                Handwritten
+            </button>
+<div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<button class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-5 py-2 rounded-full text-sm font-semibold">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                More Filters
+            </button>
+</div>
+<!-- Gallery Grid -->
+<div class="grid grid-cols-1 gap-12">
+<!-- Gallery Item 1 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col lg:flex-row shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="relative lg:w-3/5 overflow-hidden bg-slate-100 dark:bg-slate-800 min-h-[300px]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Detailed data visualization chart from business lecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMi0mc6Riea6P0rrKGDZMflfs6Hld05vAHP3mIdiamdviBp7fiePDJ9aIMAAZXzzwD_Aj8D_bh0U3tpcyKjjsk8l_fOixVnbQA1zQgOL8_o5wBXQt7vskwDp0zPsdc2gbqqjPMyIybNwS5iKBsgXdr5Yb8TrlfdVTv68PyvPzDzlVBgljNN3MvW6snTzOM6c2H3Lp-LciRzvSVQ9wX2BJ4AwVSuz0ZKECvX2CMXhHSWZ3sUyhr6yFk0wNq_brQqR9q40QErpcrR3nR"/>
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-background-dark/90 p-3 rounded-full shadow-lg hover:text-primary transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">Diagram</span>
+<span class="bg-black/60 text-white backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-medium">CS101: Data Structures</span>
+</div>
+</div>
+<div class="lg:w-2/5 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-widest">AI Explanation</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Tree Traversal Algorithms</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                            This visualization demonstrates the time complexity differences between Depth-First Search (DFS) and Breadth-First Search (BFS). The highlighted nodes show the path taken during a post-order traversal, commonly used for deleting trees or evaluating mathematical expressions.
+                        </p>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm font-medium">Identified binary tree structure with 15 nodes.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm font-medium">Detected Big O notation in handwriting.</span>
+</div>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-300"></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-primary/20 text-primary text-[10px] font-bold">+12</div>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                            View Full Notes <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col lg:flex-row shadow-sm hover:shadow-xl transition-shadow duration-300">
+<div class="relative lg:w-3/5 overflow-hidden bg-slate-100 dark:bg-slate-800 min-h-[300px]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Microscope slide image showing cellular structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv_3Num9N9fxjHYu0_oBAOlZ2vbxqh_ouLj-ct_kWMEgNZDBem9AXqpBcVJKcXzp2QujRr5xaBld18o8u95hekpIep-pwJvQOazKjew-Nikwpj-sCAw23xcyj9KsgGcY4O7RC7xPB6b4Q5m5swd9Mkq4cJYpCKoRMlCOk_FXHxvxlqpkDUthL4yLuRxEZZMVE_JJCrmaqlvy9vF-dBbIAFswhlQnfXcOrquTkkuod1K69RErJ3LREZzuck7N4cEg_YQnbP-MAwsK7h"/>
+<button class="absolute top-4 right-4 bg-white/90 dark:bg-background-dark/90 p-3 rounded-full shadow-lg hover:text-primary transition-colors">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">Slide</span>
+<span class="bg-black/60 text-white backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-medium">BIO202: Cell Biology</span>
+</div>
+</div>
+<div class="lg:w-2/5 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-widest">AI Explanation</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Mitosis: Anaphase Stage</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                            This captured frame from Lecture 4 highlights the moment sister chromatids are separated and moved toward opposite poles of the cell. The spindle fibers are clearly visible in the original capture, though slightly blurry in the lecture recording.
+                        </p>
+<div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800">
+<p class="text-xs text-slate-500 mb-1 font-bold">KEY TERMS EXTRACTED</p>
+<p class="text-sm italic">Chromatids, Centromere, Spindle Apparatus, Microtubules</p>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800">
+<span class="text-xs text-slate-400 italic">Captured 2 days ago</span>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-500">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Gallery Item 3 (Grid for smaller images) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Mini Item A -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Handwritten equations on a whiteboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRJ75sxMUIdJkJ2kpeurLkj56tgFykeC-mQf1WLgUAcY3w11PWKryGQCmxvPnsrxLg0RIL9epFzRTwzcnRjLatu9GHQ3ebXrB57WQ32YZjHOUOIn7C-ioGIB7ImoMbABitgxCzC_n3r1PpIAgJ9PBNKIjpCg_UVd1JvwatzfU_yLr7S16O9CtJTPzkgGP80Tgr6TuCKvtA5IEp37pogdAjMCjVmNjBaDKMO3fMY-sN3k69OmSj4gYxPZkN0WmCUCV2_PISBXTY19sd"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 text-[10px] font-black px-2 py-0.5 rounded uppercase">Math</span>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm mb-2">Calculus Proof #4</h4>
+<p class="text-xs text-slate-500 line-clamp-2">AI reconstructed handwritten formulas into LaTeX for searchable notes.</p>
+</div>
+</div>
+<!-- Mini Item B -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Circuit diagram design on computer screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsjMZbiBbCLJePbiTefChDZhzVCzNkwN368qRAo0mMJNsgOmj04acwnWvx4Pr8pfowZtwQWm5Yvi3VrNUbLkN00L3wtl3meCEWLJoDdPFBVW00T8k5rxn3E8bHb5SH4zAoXDqpVs7Bv85onc58JCrVizAr6_Nmad2pAatlaA177SOb9iDsX60rUPpx-15IbQ-PY7uMuva3aJ5OfIxp-jD_AxcQD6rCP8mq2O9PhwRvfGCgxmnDG49rR4c1sD38-oh4bZnxJ-mfcu20"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 text-[10px] font-black px-2 py-0.5 rounded uppercase">Physics</span>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm mb-2">Circuit Resistance Map</h4>
+<p class="text-xs text-slate-500 line-clamp-2">Schema detected: Series and parallel resistors identification from screen capture.</p>
+</div>
+</div>
+<!-- Mini Item C -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Matrix rain code background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxTujaL2tpI9h_UfwgQ8VHR25ANh47T8l2SsoLnBqMDOu70MdPjCmjxIzedAgS0b7veGGlvKrc95ebYO4pgY0pMMoOA4XOUzu0LA0F0z_43FAtbnIQ5r9VmpkNn_vk8tvRVcNC8JgaFwam8cgyuFYXGt5HUzy4R_SqStrX-7z9FVh7N2Fuq5DNpxeYfLrs-SzKfYqxwQLFLLgsC-VCCfAfcBeRR5DuSCz-jo1glWWOB5VWk49jiCJayCkfnpMXNFBDwMa4XfrJpUWD"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<span class="absolute top-3 left-3 bg-white/90 dark:bg-slate-900/90 text-[10px] font-black px-2 py-0.5 rounded uppercase">Code</span>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-sm mb-2">Python Logic Flow</h4>
+<p class="text-xs text-slate-500 line-clamp-2">Automatic syntax highlighting applied to extracted code snippet.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex items-center justify-center gap-2">
+<button class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold">1</button>
+<button class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium">2</button>
+<button class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium">3</button>
+<span class="px-2">...</span>
+<button class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium">12</button>
+<button class="w-10 h-10 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Zoom/Lightbox Overlay (Hidden by default, represented as a UI element) -->
+<div class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-8 pointer-events-none opacity-0 transition-opacity">
+<button class="absolute top-6 right-6 text-white p-2">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<div class="max-w-5xl w-full h-full flex flex-col items-center justify-center gap-6">
+<img class="max-w-full max-h-[80vh] object-contain" data-alt="Expanded view of tree traversal diagram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnY27AgsJyT-cZ51tOkvPTMsiOY7wrTdqKstz7kIDzMh_mHEIH92EEGePmoPCock9z4tFyilrJWF7T1FiRCi-9_DBV8gMWnURcSlcIXIHSQ8hQKxnQSwjSN7d8xIYbb8GZYD6IhzqClns8Z3NGZIAtZnPgt0-8p-66oLtgOwz7cfSx3V2SFoKnJMzQv8EBlmPVZqGi1qg08LUfqAYFhSqQvtKCDMKsZWXcGm6tBg0VG7GNPHBJJ-C7RG-dL1ph1T48TA1msBVAAomi"/>
+<div class="bg-white/10 text-white p-6 rounded-2xl w-full max-w-2xl backdrop-blur-md">
+<h4 class="text-xl font-bold mb-2">Detailed View: Tree Traversal</h4>
+<p class="text-slate-300 text-sm">Full resolution extraction showing handwritten annotations by Prof. Henderson regarding spatial complexity O(h).</p>
+</div>
+</div>
+</div>
+<!-- Footer Area -->
+<footer class="mt-20 border-t border-slate-200 dark:border-slate-800 py-12 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2 text-primary/50 grayscale hover:grayscale-0 transition-all cursor-pointer">
+<span class="material-symbols-outlined font-bold">school</span>
+<span class="font-extrabold tracking-tight">Lecture Mate</span>
+</div>
+<p class="text-slate-500 text-sm">© 2024 Lecture Mate AI. All extracted content is for personal study use only.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">Terms</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

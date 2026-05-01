@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Lecture Mate - Formulas &amp; Equations</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<div class="relative flex min-h-screen flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-3">
+<div class="mx-auto flex max-w-7xl items-center justify-between gap-8">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">functions</span>
+<h2 class="text-xl font-extrabold tracking-tight">Lecture Mate</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Lectures</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Notes</a>
+<a class="text-sm font-semibold text-primary" href="#">Formulas</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="relative w-full max-w-xs hidden sm:block">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border-none rounded-xl bg-slate-200/50 dark:bg-slate-800/50 focus:ring-2 focus:ring-primary text-sm placeholder-slate-500" placeholder="Search formulas..." type="text"/>
+</div>
+<div class="size-10 rounded-full border-2 border-primary overflow-hidden shadow-sm">
+<img class="h-full w-full object-cover" data-alt="Student profile picture in circular frame" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASx-juarBrCH6QH34teLAzmSCZp8CtbdoVTIkPSy0zgZNY33C2IpdVIac8LeGnTjOO3mZk1vr5UBKt1GEw1-C1UpUVetTCCNSIFujcoqMjHOeIvvJv-c4m-Qr4vYYO3-ITpJ0WLedfQrrfXsdtQZg2wEhNsfbXxwQ8hnbapKerz2LfhOiTc4ZEcSz3-8bF2xKoPtEU1Wk5Hn_taCFkartinc7ftkgccVTEFBLhGvq31N68I0hPw-GnaVhR0HfuvuWZnS1jTqoPw1t8"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-20 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm font-medium mb-6">
+<a class="text-primary hover:underline" href="#">Calculus III</a>
+<span class="text-slate-400">/</span>
+<span class="text-slate-500">Formulas &amp; Equations</span>
+</nav>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div class="space-y-2">
+<h1 class="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-slate-50">Mathematical Formulas</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+                        Extracted from <span class="text-primary font-semibold italic">"Lecture 12: Triple Integrals and Spherical Coordinates"</span>
+</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined text-xl">download</span>
+                        Export PDF
+                    </button>
+<button class="flex items-center justify-center p-2 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex shrink-0 items-center gap-2 px-5 py-2 rounded-full bg-primary text-white font-semibold text-sm">
+                    All Formulas
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-primary/10 transition-colors">
+                    Coordinate Systems
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-primary/10 transition-colors">
+                    Integration
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-primary/10 transition-colors">
+                    Jacobians
+                </button>
+<button class="flex shrink-0 items-center gap-2 px-5 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-primary/10 transition-colors">
+                    Physics Applications
+                </button>
+</div>
+<!-- Formulas Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+<!-- Formula Card 1 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 rounded">Spherical Coordinates</span>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-xl">star</span></button>
+</div>
+<div class="flex items-center justify-center py-8 px-4 bg-slate-50 dark:bg-slate-800/30 rounded-lg mb-6 border border-slate-100 dark:border-slate-800">
+<span class="text-2xl font-serif italic text-slate-800 dark:text-slate-200">
+                            x = ρ sin φ cos θ,   y = ρ sin φ sin θ,   z = ρ cos φ
+                        </span>
+</div>
+<div class="space-y-4">
+<h3 class="font-bold text-lg">Conversion: Spherical to Rectangular</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">Used to convert points and functions defined in spherical space back to the Cartesian (x, y, z) coordinate system.</p>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">ρ</span>
+<span class="text-xs text-slate-500">Radial distance</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">θ</span>
+<span class="text-xs text-slate-500">Azimuthal angle</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">φ</span>
+<span class="text-xs text-slate-500">Polar angle (from z)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Formula Card 2 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 rounded">Integration</span>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-xl">star</span></button>
+</div>
+<div class="flex items-center justify-center py-8 px-4 bg-slate-50 dark:bg-slate-800/30 rounded-lg mb-6 border border-slate-100 dark:border-slate-800 text-center">
+<span class="text-2xl font-serif italic text-slate-800 dark:text-slate-200">
+                            dV = ρ² sin φ dρ dφ dθ
+                        </span>
+</div>
+<div class="space-y-4">
+<h3 class="font-bold text-lg">Spherical Differential Volume Element</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">The infinitesimal volume element required for triple integrals in spherical coordinates, accounting for the Jacobian determinant.</p>
+<div class="flex flex-wrap gap-4 pt-2">
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">ρ² sin φ</span>
+<span class="text-xs text-slate-500">Scaling Factor</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Formula Card 3 -->
+<div class="flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between mb-4">
+<span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 rounded">Coordinate Systems</span>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined text-xl">star</span></button>
+</div>
+<div class="flex items-center justify-center py-8 px-4 bg-slate-50 dark:bg-slate-800/30 rounded-lg mb-6 border border-slate-100 dark:border-slate-800">
+<span class="text-2xl font-serif italic text-slate-800 dark:text-slate-200">
+                            ρ² = x² + y² + z²
+                        </span>
+</div>
+<div class="space-y-4">
+<h3 class="font-bold text-lg">Distance from Origin</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">The relationship defining the sphere's radius in terms of rectangular coordinates. Essential for identifying spherical symmetry.</p>
+<div class="grid grid-cols-2 gap-3 pt-2">
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-primary">x, y, z</span>
+<span class="text-xs text-slate-500">Cartesian components</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Formula Card 4 -->
+<div class="flex flex-col rounded-xl border border-primary/20 bg-primary/5 dark:bg-primary/10 p-6 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-primary/20 text-6xl select-none">auto_awesome</span>
+</div>
+<div class="flex items-start justify-between mb-4">
+<span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/20 rounded">AI Suggested Summary</span>
+<span class="material-symbols-outlined text-primary">psychology</span>
+</div>
+<div class="space-y-4">
+<h3 class="font-bold text-lg">Study Tip: Symmetry</h3>
+<p class="text-sm text-slate-700 dark:text-slate-300 italic">
+                            "When evaluating triple integrals over regions bounded by spheres or cones, always convert to spherical coordinates. The limits of integration usually become constant, significantly simplifying the calculation."
+                        </p>
+<div class="flex items-center gap-2 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-base">link</span>
+                            View related practice problems
+                        </div>
+</div>
+</div>
+</div>
+<!-- Footer Pagination/Action -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-between border-t border-slate-200 dark:border-slate-800 pt-8 gap-4">
+<div class="text-sm text-slate-500">
+                    Showing 3 formulas and 1 insight from Lecture 12
+                </div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors">Previous Lecture</button>
+<button class="px-4 py-2 text-sm font-semibold text-white bg-primary rounded-lg shadow-md hover:shadow-lg transition-all">Next Lecture</button>
+</div>
+</div>
+</main>
+<!-- Sidebar Navigation (Desktop only) -->
+<aside class="fixed right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-40">
+<button class="p-3 text-slate-400 hover:text-primary transition-colors" title="Home">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors" title="Library">
+<span class="material-symbols-outlined">book</span>
+</button>
+<button class="p-3 text-primary bg-primary/10 rounded-xl transition-colors" title="Formulas">
+<span class="material-symbols-outlined">function</span>
+</button>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors" title="AI Chat">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<hr class="border-slate-100 dark:border-slate-800 mx-2"/>
+<button class="p-3 text-slate-400 hover:text-primary transition-colors" title="Profile">
+<span class="material-symbols-outlined">person</span>
+</button>
+</aside>
+</div>
+</body></html>
