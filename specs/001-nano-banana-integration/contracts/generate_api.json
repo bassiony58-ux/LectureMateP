@@ -1,0 +1,42 @@
+{
+    "apiName": "Nano Banana Generation API",
+    "endpoint": "POST /api/nano-banana/generate",
+    "requestBody": {
+        "type": "object",
+        "properties": {
+            "jobType": {
+                "type": "string",
+                "enum": [
+                    "ppt",
+                    "video"
+                ]
+            },
+            "sourceFileId": {
+                "type": "string",
+                "description": "Firestore ID of the uploaded file."
+            },
+            "topic": {
+                "type": "string",
+                "description": "Topic or prompt parameter."
+            }
+        },
+        "required": [
+            "jobType"
+        ]
+    },
+    "response": {
+        "type": "object",
+        "properties": {
+            "success": {
+                "type": "boolean"
+            },
+            "jobId": {
+                "type": "string",
+                "description": "Local DB or external job reference"
+            },
+            "status": {
+                "type": "string"
+            }
+        }
+    }
+}
